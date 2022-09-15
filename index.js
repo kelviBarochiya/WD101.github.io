@@ -1,6 +1,4 @@
-
-  // const entries = retrieveEntries();
-  let userForm = document.getElementById("user_form");
+let userForm = document.getElementById("user_form");
 var userEntries = [];
 
 const retieveEntries = ()=>{
@@ -44,14 +42,13 @@ const email = document.getElementById('email').value
 const password = document.getElementById('password').value
 const dob = document.getElementById('dob').value
 const acceptTerms = document.getElementById('acceptTerms').checked
-//curDateText = curDate.toISOString().split("T")[0];
 var currentYear = new Date().getFullYear();
 var birthYear = dob.split("-");
 let year=birthYear[0];
 var age = currentYear-year;
 console.log({age,currentYear,birthYear})
 if(age < 18 || age > 55){
-    document.getElementById('dob').style='border:1px solid red';
+    document.getElementById('dob');
   return  alert("Age must be between 18 and 55");
 
 }else{
@@ -69,12 +66,6 @@ if(age < 18 || age > 55){
      localStorage.setItem("userEntries",JSON.stringify(userEntries));
      displayEntries();
      userForm.reset();  
-     const submit = document.getElementById("submit");
-    submit.addEventListener("click", () => validate(email));
-
-    const dateText = document.getElementById("dob");
-      dateText.min = new Date(minDateText).toLocaleDateString("en-ca");
-      dateText.max = new Date(maxDateText).toLocaleDateString("en-ca");
 } 
 }
 userForm.addEventListener('submit',saveUserForm);
